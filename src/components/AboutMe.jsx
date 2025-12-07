@@ -36,18 +36,20 @@ const AboutMe = () => {
 
   return (
     <div className="w-full h-screen relative font-poppins text-white">
+      {/* background img */}
       <img src={aboutme} alt="" className="w-full h-full" />
-
+      {/* mouse and arrow */}
       <div className="hidden xl:block">
         <ArrowDown />
       </div>
 
       <div className="about-section absolute top-[30%] xl:top-1/2 transform -translate-y-1/2 flex flex-col items-center xl:flex-row px-5 md:px-12 lg:px-48 h-1/2 ">
         <div className="left-anim">
+          {/* title */}
           <h3 className="bg-black/80 w-fit px-8 py-4 text-5xl border-4 border-second rounded-tl-4xl rounded-br-4xl">
             About me
           </h3>
-
+          {/* text */}
           <p className="bg-third px-3 md:px-8 py-4 my-6 xl:my-15 w-full xl:w-3/4 rounded-4xl">
             <span className="text-second/80 me-3 text-sm font-md">
               &lt;p&gt;
@@ -75,7 +77,7 @@ const AboutMe = () => {
             </span>
           </p>
         </div>
-
+        {/* right img */}
         <img
           className="right-anim w-full xl:w-1/4 h-[40%] sm:h-2/3 xl:h-full rounded-2xl"
           src="https://www.popphoto.com/uploads/2019/03/18/Z3SFCLVNI2GK7P2WO56WHEYN6Y.jpg?auto=webp"

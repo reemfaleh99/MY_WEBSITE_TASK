@@ -11,6 +11,7 @@ import Title from "./Title";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Overlay from "./Overlay";
 
 const skills = [
   {
@@ -57,24 +58,32 @@ const Skills = () => {
 
   return (
     <div className="w-full h-screen relative font-poppins text-white">
+      {/* background img */}
       <img src={codeImg} alt="" className="h-full w-full" />
-      <div className="absolute w-full h-full bg-black/70 left-0 top-0"></div>
+      {/* overlay */}
+      <Overlay />
+      {/* mouse and arrow */}
       <div className="hidden md:block">
         <ArrowDown />
       </div>
+      {/* tag icon */}
       <span className="skill hidden xl:block text-second/80 me-3 text-9xl font-medium absolute right-1/4 top-1/7">
         &lt;/&gt;
       </span>
+
       <div className="flex flex-col gap-5 items-center absolute top-[40%] md:top-1/2 left-1/2 transform -translate-y-[40%] -translate-x-1/2">
+        {/* title */}
         <Title
           title="Skills"
           desc="I am striving to never stop learning and improving"
         />
+        {/* skill brief */}
         <div className="my-8 flex flex-col items-center rounded-xl p-4 gap-2 bg-second text-black border-l-8 border-blue-600">
           <CgScreen className="w-9 h-9" />
           <h5 className="capitalize font-semibold">front-end development</h5>
           <span>HTML - CSS - JS -RACTJS</span>
         </div>
+        {/* tools */}
         <ul className="grid md:grid-cols-4 md:gap-38 grid-cols-2 gap-12">
           {skills.map((item, index) => (
             <li key={index} className=" skill flex flex-col items-center gap-5">

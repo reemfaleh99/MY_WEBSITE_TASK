@@ -9,6 +9,7 @@ import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Overlay from "./Overlay";
 
 const Works = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -39,30 +40,40 @@ const Works = () => {
 
   return (
     <div className="w-full h-screen relative font-poppins text-white">
+      {/* background img */}
       <img src={work} alt="" className="h-full w-full" />
-      <div className="absolute w-full h-full bg-black/70 left-0 top-0"></div>
+      {/* overlay */}
+      <Overlay />
+      {/* mouse and arrow */}
       <div className="hidden md:block">
         <ArrowDown />
-      </div>{" "}
+      </div>
       <div className="flex flex-col gap-5 items-center absolute top-[40%] md:top-1/2 left-1/2 transform -translate-y-[40%] -translate-x-1/2">
+        {/* title */}
         <Title
           title="works"
           desc="i hade pleasure of working with thtese awesome projects"
         />
         <div className="flex items-center gap-3 lg:gap-24 work-section">
           <MdArrowBackIos className="md:w-10 md:h-10 w-8 h-8 bg-gray-600/90 rounded-full p-1" />
+          {/* moniters */}
           <div className="flex flex-col sm:flex-row items-end gap-5">
+            {/* left moniter */}
             <div className="flex flex-col items-center left-animm">
+              {/* img */}
               <div className="w-48 h-64 border-8 border-third">
                 <img src={codeImg} alt="" className="object-cover h-full" />
               </div>
               <div className="w-8 h-12 bg-third"></div>
               <div className="w-24 h-2 bg-third rounded-t-2xl"></div>
             </div>
+            {/* right moniter */}
             <div className="flex flex-col items-center right-animm">
+              {/* button */}
               <a className="text-2xl text-second border-b-2 border-white my-3 font-jet">
                 view website
               </a>
+              {/* img */}
               <div className="w-72 h-40 rounded-t-2xl border-8 border-third">
                 <img
                   src={codeImg}

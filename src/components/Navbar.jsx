@@ -25,12 +25,13 @@ const socialLinks = [
 const Navbar = () => {
   return (
     <div className="flex justify-between items-center text-white font-jet">
+      {/* name */}
       <div className="text-2xl">
         <span className="text-second me-3">&lt;C/&gt;</span>
-
         <span>ReemFaleh</span>
       </div>
       <div className="flex gap-10 lg:gap-16 xl:gap-20">
+        {/* nav pages */}
         <ul className="flex gap-2 md:gap-6 text-xl">
           <NavLink
             to="/"
@@ -49,6 +50,7 @@ const Navbar = () => {
             <li>Blog</li>
           </NavLink>
         </ul>
+        {/* search */}
         <form className="relative">
           <input
             type="text"
@@ -56,15 +58,17 @@ const Navbar = () => {
           />
           <BiSearch className="text-white lg:text-black absolute right-3 top-1/4  " />
         </form>
+        {/* socialLinks */}
         <ul className="lg:flex gap-5 text-sm font-medium hidden">
           {socialLinks.map((item, index) => (
             <a
               href={item.path}
               target="_blank"
               className="flex items-center gap-2"
+              key={index}
             >
-              <li key={index}>{item.icon}</li>
-              <li className="hidden xl:block">{item.label}</li>
+              <span>{item.icon}</span>
+              <span className="hidden xl:block">{item.label}</span>
             </a>
           ))}
         </ul>

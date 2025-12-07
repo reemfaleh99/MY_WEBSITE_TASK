@@ -26,18 +26,21 @@ const Blogs = () => {
   });
   return (
     <div className="w-full h-screen relative font-poppins text-white ">
+      {/* mouse and arrow */}
       <div className="hidden md:block">
         <ArrowDown />
       </div>
       <div className=" absolute top-[42%] md:top-1/2 transform -translate-y-[40%] left-0 w-full h-full flex flex-col items-center justify-center">
+        {/* title */}
         <Title
           title="blogs"
           desc="my thoughts on techmology and business, welcome to subscribe"
         />
+        {/* blog */}
         <div className="w-full flex flex-col items-center mt-10 space-y-10 blog">
           <Blog />
         </div>
-
+        {/* buttons */}
         <div className="flex gap-10">
           <Link to="/blogs">
             <button className="bg-second py-2 px-6 rounded-full capitalize text-black">

@@ -5,6 +5,7 @@ import { FaEarthAfrica } from "react-icons/fa6";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Overlay from "./Overlay";
 
 const Footer = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -25,14 +26,16 @@ const Footer = () => {
 
   return (
     <footer className="footer-sec relative font-poppins text-white py-10  capitalize text-xl">
-      <div className="absolute w-full h-full bg-black/70 inset-0 z-0"></div>
-
+      <Overlay />
       <div className="relative z-20 flex md:flex-row flex-col items-center justify-center gap-8 md:gap-20">
-        <span className="footer">2025 ReemFaleh</span>{" "}
+        {/* name */}
+        <span className="footer">2025 ReemFaleh</span>
+        {/* options */}
         <div className="footer">
           <span className="me-5">privacy policy</span>
           <span>terms & conditions</span>
         </div>
+        {/* social icons */}
         <div className="footer flex gap-8">
           <BsInstagram className="bg-second text-third p-2 rounded-full w-10 h-10" />
           <FaEarthAfrica className="bg-second text-third p-2 rounded-full w-10 h-10" />

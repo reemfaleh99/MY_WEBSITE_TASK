@@ -37,16 +37,17 @@ const ArrowDown = () => {
   return (
     <div className="absolute top-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 justify-center">
       <MdMouse className="mouse-icon w-12 h-12 text-second" />
-
+      {/* the arrow line*/}
       <div>
-        <div className="line w-px h-2 bg-white mb-1"></div>
-        <div className="line w-px h-2 bg-white mb-1"></div>
-        <div className="line w-px h-2 bg-white mb-1"></div>
-        <div className="line w-px h-2 bg-white mb-1"></div>
-        <div className="line w-px h-3 bg-white"></div>
+        <div className="line w-px h-2 bg-white mb-1" />
+        <div className="line w-px h-2 bg-white mb-1" />
+        <div className="line w-px h-2 bg-white mb-1" />
+        <div className="line w-px h-2 bg-white mb-1" />
+        <div className="line w-px h-3 bg-white" />
       </div>
 
-      <div className="arrow w-2 h-2 border-4 transform rotate-45 bg-white"></div>
+      {/* end of arrow */}
+      <div className="arrow w-2 h-2 border-4 transform rotate-45 bg-white" />
     </div>
   );
 };

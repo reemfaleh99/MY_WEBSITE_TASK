@@ -11,10 +11,13 @@ const BlogDetails = () => {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center py-24 text-white">
       <div className="w-full px-5 lg:w-1/2">
+        {/* title */}
         <h4 className="text-4xl text-second capitalize">
           what does it take to become a web devloper
         </h4>
+        {/* line */}
         <span className="w-full h-px block bg-gray-500 my-10" />
+        {/* blog details */}
         <div className="flex justify-between mt-7 items-center">
           <div className="flex">
             {info.map((item, index) => (
@@ -27,11 +30,13 @@ const BlogDetails = () => {
           <BiDownload className="w-10 h-10 bg-second rounded-full p-2 text-third" />
         </div>
         <span className="w-full h-px block bg-gray-500 my-10" />
+        {/* blog img */}
         <img
           className="w-full h-96 object-cover rounded-lg mb-10"
           src="https://images.unsplash.com/photo-1678227547309-f25998d4fc86?fm=jpg&q=60&w=3000"
           alt=""
         />
+        {/* blog paragraph */}
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi aliquid
           atque expedita corporis est itaque quidem molestiae incidunt alias
@@ -139,6 +144,8 @@ const BlogDetails = () => {
           repellat!
         </p>
         <span className="w-full h-px block bg-gray-500 my-10" />
+        {/* blog details */}
+
         <div className="flex justify-between mt-7 items-center">
           <div className="flex">
             {info.map((item, index) => (
@@ -162,12 +169,14 @@ const BlogDetails = () => {
             web developer
           </span>
         </div>
+        {/* button */}
         <div className="flex justify-center">
           <button className=" mt-10 text-white border border-second py-2 px-6 rounded-full capitalize">
             subscribe my blogs
           </button>
         </div>
       </div>
+      {/* you may like */}
       <h1 className="mt-32 text-5xl text-center md:text-7xl capitalize text-second">
         you may also like
       </h1>

@@ -57,18 +57,23 @@ const Header = () => {
     });
   });
   return (
-    <div className="text-white py-12 w-full md:pl-28">
-      <span className="block w-full h-px bg-gray-600"></span>
-      <div className=" my-12 flex justify-center items-center flex-col xl:flex-row xl:items-end">
+    <div className="text-white py-12 w-full md:px-28">
+      {/* line under nav */}
+      <span className="block w-full h-px bg-gray-600" />
+      {/* header */}
+      <div className="my-12 flex justify-center items-center flex-col xl:flex-row xl:items-end">
+        {/* left section */}
         <div className="header">
+          {/* word that appears in small screens */}
           <div className="block xl:hidden">
             <h1 className="text-6xl md:text-8xl text-second mb-18 block xl:hidden text-center">
               Developer
             </h1>
           </div>
+          {/* info card */}
           <div className="flex flex-col items-center font-jet border-4 border-white rounded-tl-[150px] rounded-br-[150px] p-12 relative w-[90%] ">
-            <span className="absolute block -left-2 -top-2 border-second border-l-4 border-t-4 p-12 h-full w-40 rounded-tl-[160px] pointer-events-none"></span>
-
+            {/* second border */}
+            <span className="absolute block -left-2 -top-2 border-second border-l-4 border-t-4 p-12 h-full w-40 rounded-tl-[160px] pointer-events-none" />
             <img
               src="https://img.freepik.com/premium-vector/software-developer-vector-illustration-communication-technology-cyber-security_1249867-5442.jpg?semt=ais_hybrid&w=740&q=80"
               alt="error"
@@ -76,6 +81,7 @@ const Header = () => {
             />
             <h4>Reem</h4>
             <span>Front-end Developer</span>
+            {/* info */}
             <ul className="mt-4">
               {info.map((item, index) => (
                 <li key={index} className="flex items-center gap-2">
@@ -83,6 +89,7 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+            {/* skills */}
             <ul className="flex gap-2 my-5">
               <li className="bg-second text-black px-3 py-1 rounded-full">
                 HTML
@@ -97,17 +104,19 @@ const Header = () => {
                 REACTJS
               </li>
             </ul>
-
+            {/* download cv */}
             <a href="/Reem-faleh.pdf" download>
-              {" "}
               <button className="flex items-center gap-2 bg-white text-black p-3 rounded-full text-xl cursor-pointer">
                 Download CV <BiDownload />
               </button>
             </a>
           </div>
         </div>
+        {/* right section */}
         <div className="header flex flex-col md:flex-row items-center md:items-end justify-evenly">
+          {/* summery */}
           <div className="w-[90%] md:w-1/2 xl:w-1/2 font-poppins">
+            {/* word that appears in small screens */}
             <h1 className="text-8xl text-second mb-18 hidden xl:block">
               Developer
             </h1>
@@ -139,6 +148,7 @@ const Header = () => {
               let's talk <MdEmail className="bg-white/40 rounded-full p-1" />
             </span>
           </div>
+          {/* summery nums */}
           <ul className=" bg-black/50 p-10 rounded-[30%] font-jet w-[40%] 2xl:w-[20%]">
             {nums.map((item, index) => (
               <li
