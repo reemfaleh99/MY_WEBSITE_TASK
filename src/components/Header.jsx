@@ -5,6 +5,7 @@ import { MdEmail, MdLink, MdLocationPin } from "react-icons/md";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 const info = [
   {
@@ -37,6 +38,25 @@ const nums = [
   {
     num: 8,
     info: "years of experience",
+  },
+];
+
+const skills = [
+  {
+    name: "html",
+    path: "/html",
+  },
+  {
+    name: "css",
+    path: "css",
+  },
+  {
+    name: "js",
+    path: "js",
+  },
+  {
+    name: "react",
+    path: "react",
   },
 ];
 
@@ -91,22 +111,17 @@ const Header = () => {
             </ul>
             {/* skills */}
             <ul className="flex gap-2 my-5">
-              <li className="bg-second text-black px-3 py-1 rounded-full">
-                HTML
-              </li>
-              <li className="bg-second text-black px-3 py-1 rounded-full">
-                CSS
-              </li>
-              <li className="bg-second text-black px-3 py-1 rounded-full">
-                JS
-              </li>
-              <li className="bg-second text-black px-3 py-1 rounded-full">
-                REACTJS
-              </li>
+              {skills.map((item, index) => (
+                <Link key={index} to={item.path}>
+                  <li className="bg-second text-black px-3 py-1 rounded-full transition duration-300 cursor-pointer hover:bg-white">
+                    {item.name}
+                  </li>
+                </Link>
+              ))}
             </ul>
             {/* download cv */}
             <a href="/Reem-faleh.pdf" download>
-              <button className="flex items-center gap-2 bg-white text-black p-3 rounded-full text-xl cursor-pointer">
+              <button className="hover:text-white hover:bg-second transition duration-300 flex items-center gap-2 bg-white text-black p-3 rounded-full text-xl cursor-pointer">
                 Download CV <BiDownload />
               </button>
             </a>
@@ -144,9 +159,11 @@ const Header = () => {
                 &lt;p/&gt;
               </span>
             </div>
-            <span className="text-3xl flex items-center gap-3 my-5 font-jet text-second">
-              let's talk <MdEmail className="bg-white/40 rounded-full p-1" />
-            </span>
+            <a href="mailto:riiiifaleh@gmail.com">
+              <span className="text-3xl flex items-center gap-3 my-5 font-jet text-second">
+                let's talk <MdEmail className="bg-white/40 rounded-full p-1" />
+              </span>
+            </a>
           </div>
           {/* summery nums */}
           <ul className=" bg-black/50 p-10 rounded-[30%] font-jet w-[40%] 2xl:w-[20%]">

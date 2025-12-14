@@ -35,7 +35,7 @@ const ArrowDown = () => {
     });
   }, []);
   return (
-    <div className="absolute top-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 justify-center">
+    <div className="absolute top-3 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 justify-center">
       <MdMouse className="mouse-icon w-12 h-12 text-second" />
       {/* the arrow line*/}
       <div>

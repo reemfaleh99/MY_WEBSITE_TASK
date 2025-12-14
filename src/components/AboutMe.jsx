@@ -3,6 +3,8 @@ import React from "react";
 import aboutme from "../assets/aboutme.jpg";
 import ArrowDown from "./ArrowDown";
 
+import bgVid from "../assets/IMG_5489.MP4";
+
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -37,13 +39,22 @@ const AboutMe = () => {
   return (
     <div className="w-full h-screen relative font-poppins text-white">
       {/* background img */}
-      <img src={aboutme} alt="" className="w-full h-full" />
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src={bgVid} type="video/mp4" />
+      </video>
       {/* mouse and arrow */}
       <div className="hidden xl:block">
         <ArrowDown />
       </div>
 
-      <div className="about-section absolute top-[30%] xl:top-1/2 transform -translate-y-1/2 flex flex-col items-center xl:flex-row px-5 md:px-12 lg:px-48 h-1/2 ">
+      <div className="about-section absolute top-[30%] xl:top-1/2 transform -translate-y-1/2 flex flex-col items-center xl:flex-row px-5 md:px-12 2xl:px-48 h-1/2 ">
         <div className="left-anim">
           {/* title */}
           <h3 className="bg-black/80 w-fit px-8 py-4 text-5xl border-4 border-second rounded-tl-4xl rounded-br-4xl">

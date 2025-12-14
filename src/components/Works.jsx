@@ -1,15 +1,17 @@
-import React from "react";
 import work from "../assets/work.jpg";
 import ArrowDown from "./ArrowDown";
 import Title from "./Title";
 
 import codeImg from "../assets/code.jpg";
-import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Overlay from "./Overlay";
+import { projects } from "../assets/data/projects";
+import { useState } from "react";
+import { BsGithub } from "react-icons/bs";
 
 const Works = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -38,6 +40,18 @@ const Works = () => {
     });
   });
 
+  const [current, setCurrent] = useState(0); // المشروع الحالي
+
+  const prevProject = () => {
+    setCurrent((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  };
+
+  const nextProject = () => {
+    setCurrent((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+  };
+
+  const project = projects[current];
+
   return (
     <div className="w-full h-screen relative font-poppins text-white">
       {/* background img */}
@@ -45,38 +59,53 @@ const Works = () => {
       {/* overlay */}
       <Overlay />
       {/* mouse and arrow */}
-      <div className="hidden md:block">
+      <div className="hidden xl:block">
         <ArrowDown />
       </div>
-      <div className="flex flex-col gap-5 items-center absolute top-[40%] md:top-1/2 left-1/2 transform -translate-y-[40%] -translate-x-1/2">
+      <div className="flex flex-col gap-5 items-center absolute top-[40%] xl:top-1/2 left-1/2 transform -translate-y-[40%] -translate-x-1/2">
         {/* title */}
         <Title
           title="works"
-          desc="i hade pleasure of working with thtese awesome projects"
+          desc="i had pleasure of working with these awesome projects"
         />
         <div className="flex items-center gap-3 lg:gap-24 work-section">
-          <MdArrowBackIos className="md:w-10 md:h-10 w-8 h-8 bg-gray-600/90 rounded-full p-1" />
+          <MdArrowForwardIos
+            onClick={prevProject}
+            className="hover:bg-second hover:text-third hover:w-12 hover:h-12 transition duration-300 cursor-pointer transform rotate-180 md:w-10 md:h-10 w-8 h-8 bg-gray-600/90 rounded-full p-1"
+          />
           {/* moniters */}
           <div className="flex flex-col sm:flex-row items-end gap-5">
             {/* left moniter */}
             <div className="flex flex-col items-center left-animm">
               {/* img */}
-              <div className="w-48 h-64 border-8 border-third">
-                <img src={codeImg} alt="" className="object-cover h-full" />
+              <div className="w-48 h-fit border-8 border-third p-3">
+                <h4 className="capitalize text-xl font-bold text-center text-second">
+                  {project.name}
+                </h4>
+                <p className="my-2">{project.description}</p>
+                <a
+                  href={project.github}
+                  className="flex items-center bg-second w-fit px-2 rounded-2xl gap-1 text-third"
+                >
+                  github <BsGithub />
+                </a>
               </div>
               <div className="w-8 h-12 bg-third"></div>
               <div className="w-24 h-2 bg-third rounded-t-2xl"></div>
             </div>
             {/* right moniter */}
+
             <div className="flex flex-col items-center right-animm">
-              {/* button */}
-              <a className="text-2xl text-second border-b-2 border-white my-3 font-jet">
+              <a
+                className="text-2xl text-second border-b-2 border-white my-3 font-jet"
+                href={project.website}
+                target="_blank"
+              >
                 view website
               </a>
-              {/* img */}
               <div className="w-72 h-40 rounded-t-2xl border-8 border-third">
                 <img
-                  src={codeImg}
+                  src={project.image}
                   alt=""
                   className="object-cover h-full w-full"
                 />
@@ -88,7 +117,10 @@ const Works = () => {
               <div className="w-24 h-2 bg-white rounded-2xl"></div>
             </div>
           </div>
-          <MdArrowForwardIos className="md:w-10 md:h-10 w-8 h-8 bg-gray-600/90 rounded-full p-1" />
+          <MdArrowForwardIos
+            onClick={nextProject}
+            className="hover:bg-second hover:text-third hover:w-12 hover:h-12 transition duration-300 cursor-pointer md:w-10 md:h-10 w-8 h-8 bg-gray-600/90 rounded-full p-1"
+          />
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Overlay from "./Overlay";
+import { Link } from "react-router-dom";
 
 const skills = [
   {
@@ -19,24 +20,28 @@ const skills = [
     iconBg: "bg-orange-500",
     icon: <FaHtml5 />,
     color: "text-orange-500",
+    path: "html",
   },
   {
     name: "css",
     iconBg: "bg-blue-500",
     icon: <FaCss3 />,
     color: "text-blue-500",
+    path: "css",
   },
   {
     name: "js",
     iconBg: "bg-yellow-500",
     icon: <DiJavascript />,
     color: "text-yellow-500",
+    path: "js",
   },
   {
     name: "react",
     iconBg: "bg-blue-300",
     icon: <GrReactjs />,
     color: "text-blue-300",
+    path: "react",
   },
 ];
 const Skills = () => {
@@ -63,7 +68,7 @@ const Skills = () => {
       {/* overlay */}
       <Overlay />
       {/* mouse and arrow */}
-      <div className="hidden md:block">
+      <div className="hidden xl:block">
         <ArrowDown />
       </div>
       {/* tag icon */}
@@ -71,7 +76,7 @@ const Skills = () => {
         &lt;/&gt;
       </span>
 
-      <div className="flex flex-col gap-5 items-center absolute top-[40%] md:top-1/2 left-1/2 transform -translate-y-[40%] -translate-x-1/2">
+      <div className="flex flex-col gap-5 items-center absolute top-[40%] xl:top-1/2 left-1/2 transform -translate-y-[40%] -translate-x-1/2">
         {/* title */}
         <Title
           title="Skills"
@@ -86,19 +91,22 @@ const Skills = () => {
         {/* tools */}
         <ul className="grid md:grid-cols-4 md:gap-38 grid-cols-2 gap-12">
           {skills.map((item, index) => (
-            <li key={index} className=" skill flex flex-col items-center gap-5">
-              <span
-                className={`${item.iconBg} w-20 md:w-28 h-20 md:h-28 rounded-full flex items-center justify-center text-5xl md:text-6xl`}
-              >
-                {item.icon}
-              </span>
+            <Link to={item.path} key={index}>
+              {" "}
+              <li className=" skill flex flex-col items-center gap-5">
+                <span
+                  className={`${item.iconBg} hover:w-32 hover:h-32 transition-all duration-700 w-20 md:w-28 h-20 md:h-28 rounded-full flex items-center justify-center text-5xl md:text-6xl`}
+                >
+                  {item.icon}
+                </span>
 
-              <span
-                className={`${item.color} text-center text-3xl md:text-4xl uppercase`}
-              >
-                {item.name}
-              </span>
-            </li>
+                <span
+                  className={`${item.color} text-center text-3xl md:text-4xl uppercase`}
+                >
+                  {item.name}
+                </span>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>

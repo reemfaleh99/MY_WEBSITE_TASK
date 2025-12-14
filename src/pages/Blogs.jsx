@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../components/Title";
 import Blog from "../components/Blog";
 
@@ -26,6 +26,17 @@ const Blogs = () => {
     );
   }, []);
 
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=df2952b9f605473a8976d1749bb8acc2"
+    )
+      .then((res) => res.json())
+      .then((json) => setData(json.articles))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col items-center py-24 px-5 ">
       {/* Title */}
@@ -41,10 +52,7 @@ const Blogs = () => {
 
       {/* Blogs */}
       <div className="w-full flex flex-col items-center mt-10 space-y-10 blog">
-        <Blog />
-        <Blog />
-        <Blog />
-        <Blog />
+        <Blog articles={data} />
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import ArrowDown from "./ArrowDown";
 import Title from "./Title";
 import { AiOutlineMessage } from "react-icons/ai";
@@ -8,6 +7,8 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Overlay from "./Overlay";
 
+import React, { useRef } from "react";
+import { sendForm } from "@emailjs/browser";
 const Contact = () => {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -24,21 +25,47 @@ const Contact = () => {
       },
     });
   });
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    sendForm(
+      "service_wpffnrg", // من EmailJS
+      "template_gl3kgy7", // من EmailJS
+      form.current,
+      "Jb6zncwAFM-ewEtO6" // من EmailJS
+    )
+      .then((result) => {
+        console.log(result.text);
+        alert("تم إرسال الرسالة!");
+        form.current.reset(); // لمسح الحقول بعد الإرسال
+      })
+      .catch((error) => {
+        console.log(error.text);
+        alert("حدث خطأ، حاول مرة أخرى" + JSON.stringify(error));
+      });
+  };
   return (
     <div className="w-full h-screen relative font-poppins text-white">
       <Overlay />
       {/* mouse and arrow */}
-      <div className="hidden md:block">
+      <div className="hidden xl:block">
         <ArrowDown />
       </div>
-      <div className="absolute top-[40%] md:top-[55%] transform -translate-y-[40%] left-0 w-full h-full flex flex-col items-center justify-center">
+      <div className="absolute top-[40%] xl:top-[55%] transform -translate-y-[40%] left-0 w-full h-full flex flex-col items-center justify-center">
         <Title title="contact" desc="I'm currently available for work" />
         <h4 className="mt-10 text-3xl border-4 capitalize text-second border-second py-3 px-10 rounded-tl-4xl rounded-br-4xl mb-6">
           Send me a message
         </h4>
         <div className="my-10 w-full md:w-2/3">
           {/* form for message */}
-          <form className=" w-full p-6 rounded-xl flex flex-col items-center gap-12">
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className=" w-full p-6 rounded-xl flex flex-col items-center gap-6"
+          >
             {/* forms for name and e-mail */}
             <div className="flex flex-col md:flex-row gap-6 w-full">
               <div className="flex flex-col w-full contact">
@@ -46,10 +73,12 @@ const Contact = () => {
                   Your Name*
                 </label>
                 <input
+                  required
                   id="name"
+                  name="name"
                   type="text"
                   placeholder="Enter your name"
-                  className="border-b-2 border-second w-full p-2 placeholder:text-white"
+                  className="focus:outline-0 border-b-2 border-second w-full p-2 placeholder:text-white text-white focus:bg-transparent"
                 />
               </div>
               {/* email */}
@@ -58,10 +87,12 @@ const Contact = () => {
                   Your Email*
                 </label>
                 <input
+                  required
                   id="email"
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
-                  className="border-b-2 border-second w-full p-2  placeholder:text-white"
+                  className="focus:outline-0 border-b-2 border-second w-full p-2  placeholder:text-white text-white focus:bg-transparent"
                 />
               </div>
             </div>
@@ -71,9 +102,11 @@ const Contact = () => {
                 Message*
               </label>
               <input
+                required
                 id="message"
+                name="message"
                 placeholder="Write your message..."
-                className="border-b-2 border-second w-full p-3 text-black placeholder:text-white"
+                className="focus:outline-0 border-b-2 border-second w-full p-3 text-white focus:bg-transparent placeholder:text-white"
               />
             </div>
             {/* button */}
@@ -88,6 +121,25 @@ const Contact = () => {
       </div>
     </div>
   );
+
+  // return (
+  //   <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4">
+  //     <input
+  //       type="text"
+  //       name="name"
+  //       placeholder="الاسم"
+  //       className="relative z-10 p-2 border rounded w-full"
+  //     />{" "}
+  //     <input
+  //       type="text"
+  //       name="email"
+  //       placeholder="email"
+  //       className="relative z-10 p-2 border rounded w-full"
+  //     />{" "}
+  //     <textarea name="message" placeholder="الرسالة" required />
+  //     <button type="submit">إرسال</button>
+  //   </form>
+  // );
 };
 
 export default Contact;

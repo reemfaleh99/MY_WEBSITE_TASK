@@ -1,7 +1,7 @@
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsGithub, BsInstagram } from "react-icons/bs";
-import { FaEarthAfrica } from "react-icons/fa6";
+import { FaEarthAfrica, FaFacebook, FaLinkedin } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
 const socialLinks = [
@@ -11,9 +11,9 @@ const socialLinks = [
     path: "",
   },
   {
-    icon: <FaEarthAfrica className="text-second" />,
-    label: "portfolio",
-    path: "https://reem-faleh-portfolio.vercel.app/",
+    icon: <FaLinkedin className="text-second" />,
+    label: "linkedin",
+    path: "https://www.linkedin.com/in/reem-faleh-9b9579247/",
   },
   {
     icon: <BsGithub className="text-second" />,
@@ -36,7 +36,7 @@ const Navbar = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? "text-second" : "text-white"
+              `${isActive ? "text-second" : "text-white"} hover:text-second`
             }
           >
             <li>Home</li>
@@ -44,7 +44,7 @@ const Navbar = () => {
           <NavLink
             to="/blogs"
             className={({ isActive }) =>
-              isActive ? "text-second" : "text-white"
+              `${isActive ? "text-second" : "text-white"} hover:text-second`
             }
           >
             <li>Blog</li>
@@ -54,9 +54,9 @@ const Navbar = () => {
         <form className="relative">
           <input
             type="text"
-            className="bg-white px-3 py-1 rounded-2xl hidden lg:block"
+            className="bg-white px-3 py-1 rounded-2xl hidden lg:block text-black focus:outline-0"
           />
-          <BiSearch className="text-white lg:text-black absolute right-3 top-1/4  " />
+          <BiSearch className="text-white lg:text-black absolute right-3 top-1/4" />
         </form>
         {/* socialLinks */}
         <ul className="lg:flex gap-5 text-sm font-medium hidden">
@@ -64,11 +64,11 @@ const Navbar = () => {
             <a
               href={item.path}
               target="_blank"
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 hover:text-second hover:text-lg"
               key={index}
             >
               <span>{item.icon}</span>
-              <span className="hidden xl:block">{item.label}</span>
+              <span className="hidden xl:block ">{item.label}</span>
             </a>
           ))}
         </ul>
