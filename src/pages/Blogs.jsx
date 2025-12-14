@@ -29,6 +29,10 @@ const Blogs = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     fetch(
       "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=df2952b9f605473a8976d1749bb8acc2"
     )

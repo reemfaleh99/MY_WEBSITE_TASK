@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const CssPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="flex flex-col items-center justify-center py-12">
       <img
