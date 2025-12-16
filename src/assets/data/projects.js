@@ -11,7 +11,7 @@ export const projects = [
     id: "1",
     name: "lushy-cosmetics store",
     description:
-      "A cosmetics store offering essential products for all girls, complete with a blog to support and empower them. Features include user authentication, product management, and a fully functional shopping cart.",
+      "A cosmetics store offering essential products for all girls, complete with a blog to support and empower them.",
     github: "https://github.com/reemfaleh99/LUSHY_COSMETICS_STORE_REACTJS",
     website: "https://lushy-cosmetics-store-reactjs.vercel.app/home",
     image: lushyImg,
@@ -20,7 +20,7 @@ export const projects = [
     id: "2",
     name: "todo app",
     description:
-      "This app helps you organize your daily tasks efficiently, track your progress, and stay focused. It's designed to boost your productivity and help you achieve your goals more effectively. ",
+      "This app helps you organize your daily tasks efficiently, track your progress, and stay focused.  ",
     github: "https://github.com/reemfaleh99/full_todo_app_reactjs",
     website: "https://full-todo-app-reactjs.vercel.app/",
     image: todo,
@@ -29,8 +29,7 @@ export const projects = [
     id: "3",
     name: "news and blogs app",
     description:
-      "Stay up to date with the latest news from around the world across all categories — from politics and technology to entertainment and sports. You can also check current weather updates and share your thoughts by writing and publishing your own blog posts",
-    github: "https://github.com/reemfaleh99/NEWS_BLOG_APP_REACTJS",
+      "Stay up to date with the latest news from around the world across all categories — from politics and technology to entertainment and sports.",
     website: "https://news-blog-app-reactjs.vercel.app",
     image: news,
   },
@@ -38,7 +37,7 @@ export const projects = [
     id: "4",
     name: "budget app",
     description:
-      "Take control of your finances with this easy-to-use budget app. Track your income and expensesand get insights into your financial habits. Whether you're planning for a big purchase or managing daily expenses, this app helps you stay organized and make smarter financial decisions.",
+      "Take control of your finances with this easy-to-use budget app. Track your income and expensesand get insights into your financial habits. ",
     github: "https://github.com/reemfaleh99/Budget_App_Reactjs",
     website: "https://budget-app-reactjs-lac.vercel.app",
     image: budget,
