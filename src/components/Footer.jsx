@@ -23,22 +23,6 @@ const socialLinks = [
 ];
 
 const Footer = () => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  useGSAP(() => {
-    gsap.from(".footer-anim", {
-      opacity: 0,
-      y: 100,
-      duration: 1,
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: ".footer-sec",
-        start: "top 85%",
-        toggleActions: "play none none reverse",
-      },
-    });
-  });
-
   return (
     <footer className="footer-sec relative font-poppins text-white py-5 capitalize text-xl">
       <Overlay />
